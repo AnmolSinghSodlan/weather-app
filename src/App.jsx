@@ -1,9 +1,14 @@
 import Header from "./components/Header/Header";
+import WeatherToday from "./components/WeatherToday/WeatherToday";
+import "./App.css";
+import MoreDetails from "./components/MoreDetails/MoreDetails";
 
 function App() {
   return (
-    <main>
+    <main className="app">
       <Header />
+      <WeatherToday />
+      <MoreDetails />
     </main>
   );
 }

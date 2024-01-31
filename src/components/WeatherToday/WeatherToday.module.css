@@ -1,0 +1,64 @@
+.app {
+  width: 80%;
+  height: auto;
+}
+
+.heading {
+  margin: 0 0 5px 8px;
+  font-weight: 400;
+}
+
+.ui {
+  width: 100%;
+  height: auto;
+  border-radius: 30px;
+  border: 10px solid #e7eef6;
+  background-color: #fdfffe;
+  color: #242527;
+
+  display: grid;
+  grid-template-columns: 40% 35% 25%;
+}
+
+.image {
+}
+
+.details,
+.sun {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.temp {
+  font-size: 64px;
+  font-weight: 700;
+  display: flex;
+  align-items: flex-start;
+}
+
+.degree {
+  margin: 15px 1px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.desc {
+  font-size: 24px;
+  font-weight: 500;
+  margin: -18px 10% 10px 0;
+}
+
+.sun {
+  margin-right: 20%;
+}
+
+.minmax {
+  margin: 10px 0;
+  font-weight: 300;
+}
+
+.bold {
+  font-weight: 600;
+}
