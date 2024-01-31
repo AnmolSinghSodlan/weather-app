@@ -1,4 +1,5 @@
 import { MdSunny } from "react-icons/md";
+
 import styles from "./DailyDetails.module.css";
 
 function HourlyDetails() {

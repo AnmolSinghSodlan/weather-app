@@ -1,3 +1,5 @@
+import { MdSunny } from "react-icons/md";
+
 import styles from "./WeatherToday.module.css";
 
 function WeatherToday() {
@@ -8,7 +10,9 @@ function WeatherToday() {
         <span className={styles.bold}>Delhi, IN</span>
       </p>
       <div className={styles.ui}>
-        <div className={styles.image}>image</div>
+        <div className={styles.image}>
+          <MdSunny />
+        </div>
         <div className={styles.details}>
           <div className={styles.temp}>
             23<span className={styles.degree}>°C</span>

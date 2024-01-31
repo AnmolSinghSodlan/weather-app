@@ -21,6 +21,13 @@
 }
 
 .image {
+  margin-bottom: 0.1rem;
+  font-size: 5rem;
+  color: #1b8dfe;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .details,

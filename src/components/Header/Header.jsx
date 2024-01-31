@@ -7,7 +7,7 @@ function Header() {
   return (
     <header className={styles.header}>
       <Logo />
-      {/* <SearchBar /> */}
+      <SearchBar />
       <ViewMode />
     </header>
   );
