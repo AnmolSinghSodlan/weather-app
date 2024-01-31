@@ -11,22 +11,19 @@
 
 .ui {
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: column;
 }
 
 .box {
-  width: 165px;
   padding: 0.5rem;
-  margin: 0 1rem 1rem 0;
-  border-radius: 30px;
+  margin-bottom: 1rem;
+  border-radius: 25px;
   border: 10px solid #e7eef6;
   background-color: #fdfffe;
   color: #242527;
 
   display: grid;
-  grid-template-columns: 70% 30%;
-  grid-template-rows: 50% 50%;
-  gap: 0.1rem;
+  grid-template-columns: 8% 67% 11% 14%;
 
   transition: all 0.4s ease-out;
 }
@@ -38,21 +35,10 @@
   color: #fdfffe;
 }
 
-.text {
-  text-align: center;
-  font-size: 1rem;
-  font-weight: 600;
-}
-
 .icon {
   margin-bottom: 0.1rem;
   font-size: 2rem;
   color: #1b8dfe;
-
-  grid-row-start: 1;
-  grid-row-end: 3;
-  grid-column-start: 2;
-  grid-column-end: 3;
 
   display: flex;
   justify-content: center;
@@ -67,24 +53,30 @@
   font-size: 1.9rem;
 }
 
-.pressure {
-  font-size: 1.75rem;
+.day {
+  font-size: 1rem;
+  font-weight: 400;
+
+  display: flex;
+  align-items: center;
 }
 
-.humidity {
-  font-size: 2.2rem;
-}
-
-.visibility {
-  font-size: 1.8rem;
-}
-
-.wind {
-  font-size: 1.7rem;
-}
-
-.value {
+.weather {
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 300;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.temp {
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 400;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
