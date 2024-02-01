@@ -34,8 +34,6 @@ function WeatherProvider({ children }) {
     }
   };
 
-  console.log(weather);
-
   const kelvinToCelsius = (kelvin) => {
     return Math.round(kelvin - 273.15);
   };

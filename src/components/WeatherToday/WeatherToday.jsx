@@ -29,9 +29,10 @@ function WeatherToday() {
                   : kelvinToFahrenheit(weatherToday.temp)}
                 <span className={styles.degree}>{celcius ? "°C" : "°F"}</span>
               </div>
-              <div className={styles.desc}>{weatherToday.main}</div>
+              <div className={styles.main}>{weatherToday.main}</div>
+              <div className={styles.desc}>{weatherToday.description}</div>
             </div>
-            <div className={styles.sun}>
+            <div className={styles.tempmnmx}>
               <div className={styles.minmax}>
                 <p>
                   <span className={styles.bold}>Max:</span>{" "}

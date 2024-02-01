@@ -20,14 +20,14 @@ function HourlyDetails() {
     <div className={styles.app}>
       {hourlyDetails && (
         <>
-          <p className={styles.heading}>Hourly Details of Today's Weather</p>
+          <p className={styles.heading}>Hourly Details of Weather</p>
           <div className={styles.ui}>
             {hourlyDetails.map((hourlyDetail, index) => (
               <div key={index} className={styles.box}>
                 <div className={styles.time}>
                   {dateToTime(hourlyDetail.time)}
                 </div>
-                <div className={`${styles.icon} ${styles.sunrise}`}>
+                <div className={styles.icon}>
                   {iconMapping[hourlyDetail.icon]}
                 </div>
                 <div className={styles.temp}>

@@ -1,7 +1,7 @@
 import { useWeather } from "../../contexts/WeatherContext";
 import styles from "./DailyDetails.module.css";
 
-function HourlyDetails() {
+function DailyDetails() {
   const {
     weather,
     celcius,
@@ -20,12 +20,12 @@ function HourlyDetails() {
     <div className={styles.app}>
       {dailyDetails && (
         <>
-          <p className={styles.heading}>Daily Details of Upcoming Days</p>
+          <p className={styles.heading}>Daily Details of Weather</p>
           <div className={styles.ui}>
             <div>
               {dailyDetails.map((dailyDetail, index) => (
                 <div key={index} className={styles.box}>
-                  <div className={`${styles.icon} ${styles.sunrise}`}>
+                  <div className={styles.icon}>
                     {iconMapping[dailyDetail.icon]}
                   </div>
                   <div className={styles.day}>
@@ -49,4 +49,4 @@ function HourlyDetails() {
   );
 }
 
-export default HourlyDetails;
+export default DailyDetails;
