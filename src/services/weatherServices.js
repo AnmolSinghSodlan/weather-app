@@ -17,7 +17,7 @@ const getFormattedWeatherData = async (searchParams) => {
     weather: [{ main, description, icon }],
     main: { temp, temp_min, temp_max, pressure, humidity },
     visibility,
-    wind,
+    wind: { speed },
     coord: { lat, lon },
   } = weatherRaw;
 
@@ -38,7 +38,7 @@ const getFormattedWeatherData = async (searchParams) => {
     pressure,
     humidity,
     visibility,
-    wind,
+    speed,
   };
 
   const forecastRaw = await getWeatherData("forecast", { lat, lon });
@@ -66,8 +66,8 @@ const getFormattedWeatherData = async (searchParams) => {
 
   const dailyDetails = dailyDetailsRaw.map((d) => {
     return {
-      time: d.dt_txt,
       icon: d.weather[0].icon,
+      time: d.dt_txt,
       main: d.weather[0].main,
       temp_max: d.main.temp_max,
       temp_min: d.main.temp_min,

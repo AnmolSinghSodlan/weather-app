@@ -53,8 +53,10 @@
 
 .desc {
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 400;
   margin: -18px 10% 10px 0;
+
+  text-transform: lowercase;
 }
 
 .sun {
