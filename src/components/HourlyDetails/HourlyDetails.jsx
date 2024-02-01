@@ -1,11 +1,15 @@
-import { MdSunny } from "react-icons/md";
-
 import { useWeather } from "../../contexts/WeatherContext";
 import styles from "./HourlyDetails.module.css";
 
 function HourlyDetails() {
-  const { weather, celcius, dateToTime, kelvinToCelsius, kelvinToFahrenheit } =
-    useWeather();
+  const {
+    weather,
+    celcius,
+    iconMapping,
+    dateToTime,
+    kelvinToCelsius,
+    kelvinToFahrenheit,
+  } = useWeather();
   let hourlyDetails;
 
   if (weather) {
@@ -24,7 +28,7 @@ function HourlyDetails() {
                   {dateToTime(hourlyDetail.time)}
                 </div>
                 <div className={`${styles.icon} ${styles.sunrise}`}>
-                  <MdSunny />
+                  {iconMapping[hourlyDetail.icon]}
                 </div>
                 <div className={styles.temp}>
                   {celcius

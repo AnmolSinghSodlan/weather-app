@@ -4,8 +4,6 @@
   --color-background: #dde7f1;
   --color-text: #212121;
   --gradient-background: linear-gradient(to right, #8af0f2, #80e3f8);
-  /* --color-box: #1f2123;
-  --color-blue: #3fa0ef; */
 }
 
 * {
@@ -17,6 +15,7 @@
 main {
   width: 100%;
   height: auto;
+  min-height: 100vh;
   padding-bottom: 50px;
 
   font-family: "Poppins", sans-serif;

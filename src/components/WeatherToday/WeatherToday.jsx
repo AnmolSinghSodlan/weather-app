@@ -1,10 +1,8 @@
-import { MdSunny } from "react-icons/md";
-
 import { useWeather } from "../../contexts/WeatherContext";
 import styles from "./WeatherToday.module.css";
 
 function WeatherToday() {
-  const { weather, celcius, kelvinToCelsius, kelvinToFahrenheit } =
+  const { weather, celcius, iconMapping, kelvinToCelsius, kelvinToFahrenheit } =
     useWeather();
   let weatherToday;
 
@@ -23,9 +21,7 @@ function WeatherToday() {
             </span>
           </p>
           <div className={styles.ui}>
-            <div className={styles.image}>
-              <MdSunny />
-            </div>
+            <div className={styles.image}>{iconMapping[weatherToday.icon]}</div>
             <div className={styles.details}>
               <div className={styles.temp}>
                 {celcius

@@ -3,6 +3,15 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import { MdSunny } from "react-icons/md";
+import { TbMist } from "react-icons/tb";
+import { IoThunderstorm, IoCloudSharp, IoRainy, IoSnow } from "react-icons/io5";
+import {
+  BsFillCloudRainHeavyFill,
+  BsCloudSunFill,
+  BsCloudsFill,
+} from "react-icons/bs";
+
 import { getFormattedWeatherData } from "../services/weatherServices";
 
 const WeatherContext = createContext();
@@ -12,23 +21,19 @@ function WeatherProvider({ children }) {
   const [weather, setWeather] = useState(null);
   const [celcius, setCelcius] = useState(true);
 
-  useEffect(() => {
-    const fetchWeather = async () => {
-      const message = query.q ? query.q : "current location.";
+  const fetchWeather = async () => {
+    const message = query.q ? query.q : "current location.";
 
-      toast.info("Fetching weather for " + message);
+    toast.info("Fetching weather for " + message);
 
-      await getFormattedWeatherData({ ...query }).then((data) => {
-        toast.success(
-          `Successfully fetched weather for ${data.name}, ${data.country}.`
-        );
+    await getFormattedWeatherData({ ...query }).then((data) => {
+      toast.success(
+        `Successfully fetched weather for ${data.name}, ${data.country}.`
+      );
 
-        setWeather(data);
-      });
-    };
-
-    fetchWeather();
-  }, [query]);
+      setWeather(data);
+    });
+  };
 
   console.log(weather);
 
@@ -79,19 +84,40 @@ function WeatherProvider({ children }) {
   };
 
   const handleKeyDown = (e) => {
-    e.preventDefault();
     if (e.key === "Enter") {
-      setQuery({
-        q: e.target.value,
-      });
+      e.preventDefault();
+      fetchWeather();
     }
   };
 
   const handleSearch = () => {
-    setQuery({
-      q: document.querySelector("searchInput").value,
-    });
+    fetchWeather();
   };
+
+  const iconMapping = {
+    "01d": <MdSunny />,
+    "01n": <MdSunny />,
+    "02d": <BsCloudSunFill />,
+    "02n": <BsCloudSunFill />,
+    "03d": <IoCloudSharp />,
+    "03n": <IoCloudSharp />,
+    "04d": <BsCloudsFill />,
+    "04n": <BsCloudsFill />,
+    "09d": <BsFillCloudRainHeavyFill />,
+    "09n": <BsFillCloudRainHeavyFill />,
+    "10d": <IoRainy />,
+    "10n": <IoRainy />,
+    "11d": <IoThunderstorm />,
+    "11n": <IoThunderstorm />,
+    "13d": <IoSnow />,
+    "13n": <IoSnow />,
+    "50d": <TbMist />,
+    "50n": <TbMist />,
+  };
+
+  useEffect(function () {
+    fetchWeather();
+  }, []);
 
   return (
     <WeatherContext.Provider
@@ -99,6 +125,7 @@ function WeatherProvider({ children }) {
         query,
         weather,
         celcius,
+        iconMapping,
         setQuery,
         toggleDegree,
         secondsToTime,

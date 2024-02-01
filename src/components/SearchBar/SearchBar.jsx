@@ -4,7 +4,7 @@ import { useWeather } from "../../contexts/WeatherContext";
 import styles from "./SearchBar.module.css";
 
 function SearchBar() {
-  const { query, handleKeyDown, handleSearch } = useWeather();
+  const { query, setQuery, handleKeyDown, handleSearch } = useWeather();
 
   return (
     <div className={styles.searchBox}>
@@ -13,6 +13,7 @@ function SearchBar() {
         type="text"
         placeholder="Search"
         value={query.q}
+        onChange={(e) => setQuery({ q: e.target.value })}
         onKeyDown={handleKeyDown}
       />
       <button className={styles.searchButton} onClick={handleSearch}>

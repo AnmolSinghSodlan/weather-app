@@ -1,11 +1,15 @@
-import { MdSunny } from "react-icons/md";
-
 import { useWeather } from "../../contexts/WeatherContext";
 import styles from "./DailyDetails.module.css";
 
 function HourlyDetails() {
-  const { weather, celcius, dateToDate, kelvinToCelsius, kelvinToFahrenheit } =
-    useWeather();
+  const {
+    weather,
+    celcius,
+    iconMapping,
+    dateToDate,
+    kelvinToCelsius,
+    kelvinToFahrenheit,
+  } = useWeather();
   let dailyDetails;
 
   if (weather) {
@@ -22,7 +26,7 @@ function HourlyDetails() {
               {dailyDetails.map((dailyDetail, index) => (
                 <div key={index} className={styles.box}>
                   <div className={`${styles.icon} ${styles.sunrise}`}>
-                    <MdSunny />
+                    {iconMapping[dailyDetail.icon]}
                   </div>
                   <div className={styles.day}>
                     {dateToDate(dailyDetail.time)}
