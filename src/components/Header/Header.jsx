@@ -1,6 +1,6 @@
 import Logo from "../Logo/Logo";
 import SearchBar from "../SearchBar/SearchBar";
-import ViewMode from "../ViewMode/ViewMode";
+import DegreeMode from "../DegreeMode/DegreeMode";
 import styles from "./Header.module.css";
 
 function Header() {
@@ -8,7 +8,7 @@ function Header() {
     <header className={styles.header}>
       <Logo />
       <SearchBar />
-      <ViewMode />
+      <DegreeMode />
     </header>
   );
 }
