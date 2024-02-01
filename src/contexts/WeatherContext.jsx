@@ -104,8 +104,8 @@ function WeatherProvider({ children }) {
         secondsToTime,
         dateToTime,
         dateToDate,
-        handleKeyDown,
         handleSearch,
+        handleKeyDown,
         kelvinToCelsius,
         kelvinToFahrenheit,
       }}
