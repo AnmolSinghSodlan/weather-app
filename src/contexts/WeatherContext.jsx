@@ -1,7 +1,6 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 import { MdSunny } from "react-icons/md";
 import { TbMist } from "react-icons/tb";
@@ -17,22 +16,22 @@ import { getFormattedWeatherData } from "../services/weatherServices";
 const WeatherContext = createContext();
 
 function WeatherProvider({ children }) {
-  const [query, setQuery] = useState({ q: "delhi" });
+  const [query, setQuery] = useState({ q: "" });
   const [weather, setWeather] = useState(null);
   const [celcius, setCelcius] = useState(true);
 
   const fetchWeather = async () => {
-    const message = query.q ? query.q : "current location.";
-
-    toast.info("Fetching weather for " + message);
-
-    await getFormattedWeatherData({ ...query }).then((data) => {
-      toast.success(
-        `Successfully fetched weather for ${data.name}, ${data.country}.`
-      );
-
-      setWeather(data);
-    });
+    try {
+      await getFormattedWeatherData({ ...query }).then((data) => {
+        toast.success(
+          `Successfully Fetched Weather for ${data?.weatherToday.name}, ${data?.weatherToday.country}.`
+        );
+        setWeather(data);
+      });
+    } catch (error) {
+      console.error("Error fetching weather:", error);
+      toast.error("Error Fetching Weather. Please Enter Correct City Name.");
+    }
   };
 
   console.log(weather);
@@ -114,10 +113,6 @@ function WeatherProvider({ children }) {
     "50d": <TbMist />,
     "50n": <TbMist />,
   };
-
-  useEffect(function () {
-    fetchWeather();
-  }, []);
 
   return (
     <WeatherContext.Provider
