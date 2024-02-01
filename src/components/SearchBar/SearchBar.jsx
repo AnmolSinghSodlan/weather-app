@@ -16,7 +16,7 @@ function SearchBar() {
         onChange={(e) => setQuery({ q: e.target.value })}
         onKeyDown={handleKeyDown}
       />
-      <button className={styles.searchButton} onClick={handleSearch}>
+      <button className={styles.searchButton} onClick={query.q && handleSearch}>
         <FaSearch className={styles.icon} />
       </button>
     </div>
