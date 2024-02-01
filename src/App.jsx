@@ -3,16 +3,18 @@ import WeatherToday from "./components/WeatherToday/WeatherToday";
 import MoreDetails from "./components/MoreDetails/MoreDetails";
 import HourlyDetails from "./components/HourlyDetails/HourlyDetails";
 import DailyDetails from "./components/DailyDetails/DailyDetails";
-import "./App.css";
+import { WeatherProvider } from "./contexts/WeatherContext";
 
 function App() {
   return (
-    <main className="app">
-      <Header />
-      <WeatherToday />
-      <MoreDetails />
-      <HourlyDetails />
-      <DailyDetails />
+    <main>
+      <WeatherProvider>
+        <Header />
+        <WeatherToday />
+        <MoreDetails />
+        <HourlyDetails />
+        <DailyDetails />
+      </WeatherProvider>
     </main>
   );
 }

@@ -5,12 +5,7 @@ import styles from "./SearchBar.module.css";
 function SearchBar() {
   return (
     <div className={styles.searchBox}>
-      <input
-        className={styles.searchInput}
-        type="text"
-        name=""
-        placeholder="Search"
-      />
+      <input className={styles.searchInput} type="text" placeholder="Search" />
       <button className={styles.searchButton} href="#">
         <FaSearch className={styles.icon} />
       </button>
