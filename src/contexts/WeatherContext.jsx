@@ -86,6 +86,7 @@ function WeatherProvider({ children }) {
     if (e.key === "Enter") {
       e.preventDefault();
       fetchWeather();
+      e.target.blur();
     }
   };
 
