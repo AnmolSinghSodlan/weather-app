@@ -4,7 +4,8 @@ import { useWeather } from "../../contexts/WeatherContext";
 import styles from "./DailyDetails.module.css";
 
 function HourlyDetails() {
-  const { weather } = useWeather();
+  const { weather, celcius, dateToDate, kelvinToCelsius, kelvinToFahrenheit } =
+    useWeather();
   let dailyDetails;
 
   if (weather) {
@@ -23,12 +24,16 @@ function HourlyDetails() {
                   <div className={`${styles.icon} ${styles.sunrise}`}>
                     <MdSunny />
                   </div>
-                  <div className={styles.day}>{dailyDetail.time}</div>
+                  <div className={styles.day}>
+                    {dateToDate(dailyDetail.time)}
+                  </div>
                   <div className={styles.weather}>
                     {dailyDetail.description}
                   </div>
                   <div className={styles.temp}>
-                    {dailyDetail.temp_min}°C / {dailyDetail.temp_max}°C
+                    {celcius
+                      ? `${kelvinToCelsius(dailyDetail.temp)}°C`
+                      : `${kelvinToFahrenheit(dailyDetail.temp)}°F`}
                   </div>
                 </div>
               ))}

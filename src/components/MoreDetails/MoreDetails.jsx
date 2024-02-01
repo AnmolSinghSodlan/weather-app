@@ -8,7 +8,7 @@ import { useWeather } from "../../contexts/WeatherContext";
 import styles from "./MoreDetails.module.css";
 
 function MoreDetails() {
-  const { weather } = useWeather();
+  const { weather, secondsToTime } = useWeather();
   let moreDetails;
 
   if (weather) {
@@ -26,14 +26,18 @@ function MoreDetails() {
               <div className={`${styles.icon} ${styles.sunrise}`}>
                 <TbSun />
               </div>
-              <div className={styles.value}>{moreDetails.sunrise} AM</div>
+              <div className={styles.value}>
+                {secondsToTime(moreDetails.sunrise)}
+              </div>
             </div>
             <div className={styles.box}>
               <div className={styles.text}>Sunset</div>
               <div className={`${styles.icon} ${styles.sunset}`}>
                 <TbSunset2 />
               </div>
-              <div className={styles.value}>{moreDetails.sunset} PM</div>
+              <div className={styles.value}>
+                {secondsToTime(moreDetails.sunset)}
+              </div>
             </div>
             <div className={styles.box}>
               <div className={styles.text}>Pressure</div>
